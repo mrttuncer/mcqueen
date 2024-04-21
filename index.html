@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/output.css">
+</head>
+
+<body>
+    <div class="h-screen w-screen bg-cover bg-background">
+        <div class="py-[15%] w-full flex flex-col gap-y-8">
+            <h1
+                class="text-9xl bg-gradient-to-r from-[#c04e4d] to-[#6f87cd] inline-block text-transparent bg-clip-text text-center mx-auto w-full">
+                Benimle Çıkar
+                Mısın? </h1>
+            <div class="flex flex-row gap-x-12 mx-auto">
+                <div id="evet"
+                    class="rounded-2xl bg-gradient-to-r from-[#c04e4d] to-[#6f87cd] text-white text-xl px-10 py-4 cursor-pointer">
+                    Evet
+
+                </div>
+                <div id="move" onmouseover="runaway(this)"
+                    class="relative rounded-2xl bg-gradient-to-r from-[#c04e4d] to-[#6f87cd] text-white text-xl px-10 py-4 cursor-pointer">
+                    Hayır
+
+                </div>
+                <img src="/donkeys.webp" alt="Donkeys" class="absolute top-4 left-[33%]">
+
+            </div>
+        </div>
+    </div>
+    <div class="hidden">
+        <audio controls>
+            <source src="/kaccow.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+
+</body>
+<script>
+    function runaway(id) {
+        id.style.top = Math.round(Math.random() * 500) - 100 + 'px';
+        id.style.left = Math.round(Math.random() * 500) - 200 + 'px';
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('evet').addEventListener('click', function () {
+            var audio = new Audio('/kaccow.mp3');
+            audio.play();
+            audio.addEventListener('ended', function () {
+                window.location.href = 'success.html';
+            });
+        });
+    });
+</script>
+
+</html>
